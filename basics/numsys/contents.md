@@ -1,0 +1,1 @@
+Computers, at a basic level, don't communicate using letters and words like we do. Instead, they communicate using **number systems**, which is what we'll be talking about in this section. They also need to be able to translate normal, readable text into these numbers: that's what **encodings** are for. Read on to figure out what they're all about!
