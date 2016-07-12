@@ -1,4 +1,5 @@
 {
   "title": "Basics",
-  "first_child": "numsys"
+  "first_child": "numsys",
+  "next": "crypto"
 }
