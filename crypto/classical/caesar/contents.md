@@ -9,7 +9,7 @@ Wow! This is our first cipher. It might seem cool, but it turns out to be really
 The first, and easiest, attack that can break the Caesar cipher is a **brute-force** attack. By this, we mean just trying every possible key. There are only 25 of them, so it's easy to check each one, especially if you have a computer. Let's do it!
 
 <div class="panel panel-default">
-    <div class="panel-heading">Caesar Cipher Brute Force</div>
+    <div class="panel-heading">Brute Force</div>
     <div class="panel-body">
         <form onsubmit="return false;">
             <label for="ciphertext-brute-force">Plaintext</label>
@@ -78,15 +78,16 @@ The astute reader will have noticed that, in fact, we do know something about th
 
 ### Frequency Analysis
 
-The Caesar cipher is a simple example of the *substitution cipher*, where we swap some letters out for other letters. A much more powerful attack on substitution ciphers is called **frequency analysis**.
+The Caesar cipher is a simple example of the *substitution cipher*, where we swap some letters out for other letters. Brute force is easy for the Caesar cipher, since there are only 26 possible keys. But what if there were many more keys? A much more powerful attack that we can use on substitution ciphers is called **frequency analysis**. To understand frequency analysis, first, ask yourself this question: *which letter is most common in the English langauge*? As you might have guessed, it's the letter `E`. When we look at some ciphertext that's been encrypted with the Caesar cipher, we only have to look at which letter is most common, and that letter probably corresponds to `E`. `E` is generally around 12.7% of all English text, followed by `A`, `O`, and `T`, comprising 8.2%, 7.5%, and 9.1% of all letters, respectively.
 
+Frequency analysis is very effective, especially for longer ciphertexts, since short ciphertexts that don't have many letters might have a skewed distribution (think of it as having a larger sample size). Below, you can test out frequency analysis!
 
 <div class="panel panel-default">
-    <div class="panel-heading">Caesar Cipher Brute Force</div>
+    <div class="panel-heading">Frequency Analysis</div>
     <div class="panel-body">
         <form onsubmit="return false;">
-            <label for="plaintext-frequency-analysis">Plaintext</label>
-            <textarea class="form-control" id="plaintext-frequency-analysis" rows="15" oninput="update_frequency_analysis();">
+            <label for="text-frequency-analysis">Text</label>
+            <textarea class="form-control" id="text-frequency-analysis" rows="15" oninput="update_frequency_analysis();">
 MARULLUS
 Wherefore rejoice? What conquest brings he home?
 What tributaries follow him to Rome,
@@ -111,6 +112,19 @@ That comes in triumph over Pompey's blood? Be gone!
 Run to your houses, fall upon your knees,
 Pray to the gods to intermit the plague
 That needs must light on this ingratitude.
+
+FLAVIUS
+Go, go, good countrymen, and, for this fault,
+Assemble all the poor men of your sort;
+Draw them to Tiber banks, and weep your tears
+Into the channel, till the lowest stream
+Do kiss the most exalted shores of all.
+
+[Exeunt all the Commoners]
+
+See whether their basest metal be not moved;
+They vanish tongue-tied in their guiltiness.
+Go you down that way towards the Capitol;
             </textarea>
 
             <br/>
@@ -137,7 +151,7 @@ That needs must light on this ingratitude.
 
 <script type="text/javascript">
     function update_frequency_analysis() {
-        var text = $("#plaintext-frequency-analysis").val().toUpperCase();
+        var text = $("#text-frequency-analysis").val().toUpperCase();
 
         var counts = [];
         var total = 0;
