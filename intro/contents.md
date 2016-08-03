@@ -6,7 +6,7 @@ This guide is a work in progress! If you have any comments, questions, concerns,
 
 This guide is split into several **modules**, each of which is a small lesson regarding some topic in cybersecurity. Many of the modules are interactive, so you can play around with what you learn and try to figure out how it works. Within each topic, modules are arranged in rough order of difficulty.
 
-#### Prerequisites
+### Prerequisites
 
 We really don't expect much, and are trying to spread this knowledge to as wide an audience as possible. Anyone proficient in basic math should have enough background to understand almost all of the content. Some programming experience would be nice, but we'll review everything you need to know.
 

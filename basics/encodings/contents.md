@@ -1,6 +1,6 @@
 In the previous section, we discussed how computers represent data as numbers using number systems. Next, let's see how these numbers can be used to represent text. The most popular and simple system in place to represent English text is called **ASCII** (American Standard Code for Information Interchange). ASCII is a **text encoding**: it represents, or *encodes*, text as numbers. In ASCII, the numbers 0 through 127 each correspond to a character: a number, letter, or special symbol. Here is a standard ASCII table that lists the corresponding character for the numbers 0 through 127:
 
-<table class="table-striped" style="width: 100%;">
+<table class="table table-striped">
 <tr><th>Decimal</th><th>Hex</th><th>Value</th><th>Decimal</th><th>Hex</th><th>Value</th><th>Decimal</th><th>Hex</th><th>Value</th><th>Decimal</th><th>Hex</th><th>Value</th></tr>
 <tr><td>0</td><td>0</td><td><code>(null)</code></td><td>32</td><td>20</td><td><code>(space)</code></td><td>64</td><td>40</td><td><code>@</code></td><td>96</td><td>60</td><td><code>`</code></td></tr>
 <tr><td>1</td><td>1</td><td><code>(start of heading)</code></td><td>33</td><td>21</td><td><code>!</code></td><td>65</td><td>41</td><td><code>A</code></td><td>97</td><td>61</td><td><code>a</code></td></tr>
