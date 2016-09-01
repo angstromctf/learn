@@ -1,6 +1,8 @@
 Welcome to the official angstromCTF Learning Guide! angstromCTF is a free, online cybersecurity competition for high school students. Here, we've written and presented essential cybersecurity material that will help you all throughout our competition. Even if you're not playing angstromCTF, this guide still has a lot to offer for you: a complete review of basic and intermediate cybersecurity topics that will prove fruitful and interesting to many readers. Start at the beginning if you're new to CTFing and cybersecurity, and if you have some experience, check out the later sections.
 
-This guide is a work in progress! If you have any comments, questions, concerns, or suggestions, shoot us an email at <a href="mailto:contact@angstromctf.com">contact@angstromctf.com</a>. More content will be added as time progresses.
+This guide is a work in progress! We're currently porting over content from our old Gitbook repo, which is still public but will be going offline after everything is moved over. 
+
+If you have any comments, questions, concerns, or suggestions, shoot us an email at <a href="mailto:contact@angstromctf.com">contact@angstromctf.com</a>. More content will be added as time progresses. If you would like to contribute, open a pull request with your contributions, and we'll review it and potentially merge it in. Instructions on how the module system works will be added soon!
 
 ### Structure of this Guide
 
