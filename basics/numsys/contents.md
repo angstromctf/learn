@@ -17,3 +17,101 @@ As programmers, we often deal with numbers that are too large to be conveniently
 Less often, you'll see octal, which is base 8. This works exactly how you'd expect it to, using places values that are powers of eight.
 
 Conveniently, since $16=2^4$, each hex digit corresponds directly to four binary digits. That is to say, for example, $3C_{16} = 00111100_2$, since $3_{16} = 0011_2$ and $C_{16} = 1100_2$. Similarly, each octal digit corresponds to three binary digits. Most programming languages have, along with a method that converts an integer into a decimal string, methods for octal, hex, and binary, as well. For example, in Python, `hex(2802)` is `'0xaf8'` (`0x` is a prefix you'll see that denotes a hex number, along with `0b` for binary and `0o` for octal). You can also convert the other way. In Python, `int('af8', 16)` is `2802`.
+
+### Other Bases
+
+Sometimes, you'll see other bases in use, like base 3 or base 11. These operate on the same principle that we discussed above: base-*n* numbers use digits with place values that are powers of *n*.
+
+Try it out!
+
+<div class="panel panel-default">
+    <div class="panel-heading">Base Conversion</div>
+    <div class="panel-body">
+        <form onsubmit="return false;">
+            <label for="from">Original number</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="from" placeholder="1FA7" oninput="update_conversion();">
+                <span class="input-group-addon" id="from-base">base 16</span>
+            </div>
+            
+            <label>Original base</label>
+            <div class="input-group">
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="2" onclick="update_conversion();">Binary
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="8" onclick="update_conversion();">Octal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="10" onclick="update_conversion();">Decimal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="16" onclick="update_conversion();" checked>Hexadecimal
+                </label>
+            </div>
+            
+            <label for="to">Converted number</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="to" placeholder="8103" disabled>
+                <span class="input-group-addon" id="to-base">base 10</span>
+            </div>
+            
+            <label>Converted base</label>
+            <div class="input-group">
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="2" onclick="update_conversion();">Binary
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="8" onclick="update_conversion();">Octal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="10" onclick="update_conversion();" checked>Decimal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="16" onclick="update_conversion();">Hexadecimal
+                </label>
+            </div>
+            
+            <!--<br/>
+            <button class="btn btn-success" type="submit">Swap bases <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button>-->
+            
+            <br/><br/>
+            <div class="input-group">
+                <label for="conversion">Conversion math</label>
+                <p id="conversion" class="form-control-static">1FA7<sub>16</sub> = 1*16<sup>3</sup> + 15*16<sup>2</sup> + 10*16<sup>1</sup> + 7*16<sup>0</sup> = 8103<sub>10</sub></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    
+    function update_conversion() {
+        var value = $("#from").val();
+        var base1 = parseInt($('input[name="from-base-options"]:checked').val());
+        var base2 = parseInt($('input[name="to-base-options"]:checked').val());
+        
+        $("#from-base").text("base " + base1);
+        $("#to-base").text("base "+ base2);
+        
+        var digits_okay = true;
+        for (var i = 0; i < value.length; i++) {
+            if (!digits.substr(0,base1).includes(value.charAt(i))) digits_okay = false;
+        }
+        
+        if (!digits_okay) {
+            $("#conversion").html("In base " + base1 + ", only the following digits are permissible: " + digits.substr(0,base1)) + ".";
+            return;
+        }
+        
+        $("#conversion").html(value + "<sub>" + base1 + "</sub> = ");
+        
+        var ival = 0;
+        for (var i = 0; i < value.length; i++) {
+            ival = ival * base1 + digits.indexOf(value.charAt(i));
+        }
+        
+        var conv = "";
+    }
+</script>
