@@ -1,5 +1,6 @@
 ---
 title: "Cryptography"
+order: 3
 ---
 
 Since ancient times, people have tried to figure out ways communicate securely with each other. One of Julius Caesar's strongest military advantages was the use of the Caesar cipher (studied in the next module), which he used to send secret messages to his troops, without the enemy being able to interpret them. The study of secure communication methods is called **cryptography**. These secure communication methods are often known as **cryptosystems**. The major goal of a cryptosystem is to ensure that the enemy can't **break** the cryptosystem: figure out the secret information that's concealed.

@@ -1,4 +1,4 @@
-{% assign modules = site.modules | sort: "order" %}
+{% assign modules = site.modules %}
 {% capture html %}
 <ul>
 {% for module in modules %}
@@ -10,8 +10,8 @@
             {% assign child = remainder | split: '/' | first %}
             {% assign child_node = include.node | append: child | append: '/' %}
 
-            {% unless children contains child_node %}
-                {% assign children = children | append: '|' | append: child_node %}
+            {% unless already contains child_node %}
+                {% assign already = already | append: '|' | append: child_node %}
                 {% assign index_url = child_node | append: 'index/' %}
                 {% assign index = modules | where: 'url',index_url %}
 

@@ -1,5 +1,6 @@
 ---
 title: "Reverse Engineering"
+order: 4
 ---
 
 Reverse Engineering is a relatively old topic - ever since someone began writing software, someone has been trying to reverse engineer it. But what does this term mean? Reverse engineering is the process of extracting information from a program in order to figure out how to recreate it or to discover a vulnerability that you can exploit.
