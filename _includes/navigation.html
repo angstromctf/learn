@@ -14,13 +14,14 @@
                 {% assign already = already | append: '|' | append: child_node %}
                 {% assign index_url = child_node | append: 'index/' %}
                 {% assign index = modules | where: 'url',index_url %}
+                {% assign index = index[0] %}
 
-                <li><a href="{{ index[0].url }}">{{ index[0].title }}</a>
+                <li>{% include link.html target=index %}
                 {% include navigation.html node=child_node %}</li>
             {% endunless %}
         {% else %}
             {% unless remainder == "index/" %}
-                <li><a href="{{ module.url }}">{{ module.title }}</a></li>
+                <li>{% include link.html target=module %}</li>
             {% endunless %}
         {% endif %}
     {% endif %}
