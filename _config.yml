@@ -19,11 +19,9 @@ defaults:
       type: modules
     values:
       layout: module
-      permalink: /modules/:path/
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-cayman
 gems:
   - jekyll-feed
 exclude:
