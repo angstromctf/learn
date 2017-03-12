@@ -7,10 +7,10 @@ Since ancient times, people have tried to figure out ways communicate securely w
 
 Here's one type of scenario we might use cryptography to address. Let's imagine we have three people - Alice, Bob, and Eve. Alice and Bob are best friends, but they don't like Eve very much. Likewise, Eve doesn't like Alice or Bob. On this particular day, Alice is planning a party. She wants to invite Bob, but not Eve. Eve, being an evil person, has the ability to intercept all messages between Alice and Bob. What might Alice do to ensure Eve does not learn about the party?
 
-Throughout the rest of this guide and the broader field of cryptography, Alice and Bob will continue to be the two major parties in our cryptography systems. Eve will be the *eavesdropper*, listening in on Alice and Bob's conversation without interfering with or changing it.
+Throughout the rest of this guide and the broader field of cryptography, Alice and Bob will continue to be the two major **parties** in our cryptography systems. Eve will be the **eavesdropper**, listening in on Alice and Bob's conversation without interfering with or changing it.
 
 <figure class="figure">
-    <img class="figure-img center-block" src="http://imgs.xkcd.com/comics/security.png"></img>
+    <img class="figure-img img-fluid" src="http://imgs.xkcd.com/comics/security.png">
     <figcaption class="figure-caption text-center">Basically how cryptography works in real life.</figcaption>
 </figure>
 

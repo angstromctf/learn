@@ -4,7 +4,14 @@
 .jumbotron {
   background-color: #2d3e50;
   background-image: linear-gradient(120deg, #2d3e50, #18bc9c);
-  color: white;
+
+  h1 {
+    color: white;
+  }
+
+  h2 {
+    color: #bfd;
+  }
 }
 
 .nav-list, .nav-list ol {

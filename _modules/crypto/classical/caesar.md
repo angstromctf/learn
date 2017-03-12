@@ -12,44 +12,47 @@ Wow! This is our first cipher. It might seem cool, but it turns out to be really
 
 The first, and easiest, attack that can break the Caesar cipher is a **brute-force** attack. By this, we mean just trying every possible key. There are only 25 of them, so it's easy to check each one, especially if you have a computer. Let's do it!
 
-<div class="panel panel-default">
-    <div class="panel-heading">Brute Force</div>
-    <div class="panel-body">
-        <form onsubmit="return false;">
-            <label for="ciphertext-brute-force">Plaintext</label>
-            <input type="text" class="form-control" id="ciphertext-brute-force" value="Z BEFN KYV XIVVBJ RIV YZUUVE ZE KYV KIFARE YFIJV" oninput="update_brute_force();">
-        </form>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Brute Force</h4>
 
-        <table class="table table-striped">
-            <tr><th style="width: 10%;">Key</th><th style="width: 90%;">Plaintext Attempt</th></tr>
-            <tr><td>0</td><td><code id="plaintext0"></code></td></tr>
-            <tr><td>1</td><td><code id="plaintext1"></code></td></tr>
-            <tr><td>2</td><td><code id="plaintext2"></code></td></tr>
-            <tr><td>3</td><td><code id="plaintext3"></code></td></tr>
-            <tr><td>4</td><td><code id="plaintext4"></code></td></tr>
-            <tr><td>5</td><td><code id="plaintext5"></code></td></tr>
-            <tr><td>6</td><td><code id="plaintext6"></code></td></tr>
-            <tr><td>7</td><td><code id="plaintext7"></code></td></tr>
-            <tr><td>8</td><td><code id="plaintext8"></code></td></tr>
-            <tr><td>9</td><td><code id="plaintext9"></code></td></tr>
-            <tr><td>10</td><td><code id="plaintext10"></code></td></tr>
-            <tr><td>11</td><td><code id="plaintext11"></code></td></tr>
-            <tr><td>12</td><td><code id="plaintext12"></code></td></tr>
-            <tr><td>13</td><td><code id="plaintext13"></code></td></tr>
-            <tr><td>14</td><td><code id="plaintext14"></code></td></tr>
-            <tr><td>15</td><td><code id="plaintext15"></code></td></tr>
-            <tr><td>16</td><td><code id="plaintext16"></code></td></tr>
-            <tr><td>17</td><td><code id="plaintext17"></code></td></tr>
-            <tr><td>18</td><td><code id="plaintext18"></code></td></tr>
-            <tr><td>19</td><td><code id="plaintext19"></code></td></tr>
-            <tr><td>20</td><td><code id="plaintext20"></code></td></tr>
-            <tr><td>21</td><td><code id="plaintext21"></code></td></tr>
-            <tr><td>22</td><td><code id="plaintext22"></code></td></tr>
-            <tr><td>23</td><td><code id="plaintext23"></code></td></tr>
-            <tr><td>24</td><td><code id="plaintext24"></code></td></tr>
-            <tr><td>25</td><td><code id="plaintext25"></code></td></tr>
-        </table>
+    <div class="form-group">
+        <label for="ciphertext-brute-force">Plaintext</label>
+        <input type="text" class="form-control" id="ciphertext-brute-force" value="Z BEFN KYV XIVVBJ RIV YZUUVE ZE KYV KIFARE YFIJV" oninput="update_brute_force();">
     </div>
+
+    <br/>
+
+    <table class="table table-striped">
+        <tr><th style="width: 10%;">Key</th><th style="width: 90%;">Plaintext Attempt</th></tr>
+        <tr><td>0</td><td><code id="plaintext0"></code></td></tr>
+        <tr><td>1</td><td><code id="plaintext1"></code></td></tr>
+        <tr><td>2</td><td><code id="plaintext2"></code></td></tr>
+        <tr><td>3</td><td><code id="plaintext3"></code></td></tr>
+        <tr><td>4</td><td><code id="plaintext4"></code></td></tr>
+        <tr><td>5</td><td><code id="plaintext5"></code></td></tr>
+        <tr><td>6</td><td><code id="plaintext6"></code></td></tr>
+        <tr><td>7</td><td><code id="plaintext7"></code></td></tr>
+        <tr><td>8</td><td><code id="plaintext8"></code></td></tr>
+        <tr><td>9</td><td><code id="plaintext9"></code></td></tr>
+        <tr><td>10</td><td><code id="plaintext10"></code></td></tr>
+        <tr><td>11</td><td><code id="plaintext11"></code></td></tr>
+        <tr><td>12</td><td><code id="plaintext12"></code></td></tr>
+        <tr><td>13</td><td><code id="plaintext13"></code></td></tr>
+        <tr><td>14</td><td><code id="plaintext14"></code></td></tr>
+        <tr><td>15</td><td><code id="plaintext15"></code></td></tr>
+        <tr><td>16</td><td><code id="plaintext16"></code></td></tr>
+        <tr><td>17</td><td><code id="plaintext17"></code></td></tr>
+        <tr><td>18</td><td><code id="plaintext18"></code></td></tr>
+        <tr><td>19</td><td><code id="plaintext19"></code></td></tr>
+        <tr><td>20</td><td><code id="plaintext20"></code></td></tr>
+        <tr><td>21</td><td><code id="plaintext21"></code></td></tr>
+        <tr><td>22</td><td><code id="plaintext22"></code></td></tr>
+        <tr><td>23</td><td><code id="plaintext23"></code></td></tr>
+        <tr><td>24</td><td><code id="plaintext24"></code></td></tr>
+        <tr><td>25</td><td><code id="plaintext25"></code></td></tr>
+    </table>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -86,10 +89,11 @@ The Caesar cipher is a simple example of the *substitution cipher*, where we swa
 
 Frequency analysis is very effective, especially for longer ciphertexts, since short ciphertexts that don't have many letters might have a skewed distribution (think of it as having a larger sample size). Below, you can test out frequency analysis!
 
-<div class="panel panel-default">
-    <div class="panel-heading">Frequency Analysis</div>
-    <div class="panel-body">
-        <form onsubmit="return false;">
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Frequency Analysis</h4>
+
+    <div class="form-group">
             <label for="text-frequency-analysis">Text</label>
             <textarea class="form-control" id="text-frequency-analysis" rows="15" oninput="update_frequency_analysis();">
 MARULLUS
@@ -130,9 +134,8 @@ See whether their basest metal be not moved;
 They vanish tongue-tied in their guiltiness.
 Go you down that way towards the Capitol;
             </textarea>
-
-            <br/>
-        </form>
+          </div>
+        <br/>
 
         <table class="table table-striped">
             <tr><th style="width: 10%">Letter</th><th style="width: 20%;">Count</th><th style="width: 20%;">Frequency</th><th style="width: 10%">Letter</th><th style="width: 20%;">Count</th><th style="width: 20%;">Frequency</th></tr>
