@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Cryptography | ångstromCTF Learning Guide</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/styles/theme.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Cryptography</h1>
+				<h2>&aring;ngstromCTF Learning Guide</h2>
+      </div>
+		</div>
+
+		<div class="container">
+			<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$$','$$']]}});
+</script>
+
+<div class="row">
+  <div class="col">
+    <p>Since ancient times, people have tried to figure out ways communicate securely with each other. One of Julius Caesar’s strongest military advantages was the use of the Caesar cipher (studied in the next module), which he used to send secret messages to his troops, without the enemy being able to interpret them. The study of secure communication methods is called <strong>cryptography</strong>. These secure communication methods are often known as <strong>cryptosystems</strong>. The major goal of a cryptosystem is to ensure that the enemy can’t <strong>break</strong> the cryptosystem: figure out the secret information that’s concealed.</p>
+
+<p>Here’s one type of scenario we might use cryptography to address. Let’s imagine we have three people - Alice, Bob, and Eve. Alice and Bob are best friends, but they don’t like Eve very much. Likewise, Eve doesn’t like Alice or Bob. On this particular day, Alice is planning a party. She wants to invite Bob, but not Eve. Eve, being an evil person, has the ability to intercept all messages between Alice and Bob. What might Alice do to ensure Eve does not learn about the party?</p>
+
+<p>Throughout the rest of this guide and the broader field of cryptography, Alice and Bob will continue to be the two major <strong>parties</strong> in our cryptography systems. Eve will be the <strong>eavesdropper</strong>, listening in on Alice and Bob’s conversation without interfering with or changing it.</p>
+
+<figure class="figure">
+    <img class="figure-img img-fluid" src="http://imgs.xkcd.com/comics/security.png" />
+    <figcaption class="figure-caption text-center">Basically how cryptography works in real life.</figcaption>
+</figure>
+
+<p>In this section, we’ll start by reviewing some classical cryptosystems and basic vocabulary. We’ll move from there to more modern systems like RSA and AES.</p>
+
+
+    <br/>
+     <a href="/basics/encodings/" style="float: left;">&laquo; Encodings</a> 
+     <a href="/crypto/classical/" style="float: right;">Classical Cryptography &raquo;</a> 
+    <br/><br/>
+  </div>
+
+  <div class="col-12 col-md-auto">
+    <h3>Navigation</h3>
+
+    <ol class="nav-list">
+      <li>
+  <a class="active" href="/">Home</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/">Basics</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/number_systems/">Number Systems</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/encodings/">Encodings</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a class="active" href="/crypto/">Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/">Classical Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/caesar/">Caesar Cipher</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/">Modern Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/modern/aes/">AES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/des/">DES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/rsa/">RSA</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/re/">Reverse Engineering</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    </ol>
+  </div>
+</div>
+
+
+			<footer>
+				<br/>
+				<hr>
+				Copyright &copy; 2016-17 &aring;ngstromCTF.
+				<br/><br/>
+			</footer>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	</body>
+</html>
