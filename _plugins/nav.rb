@@ -34,8 +34,8 @@ module Navigation
         page.data['permalink'] = strip_leading(strip_trailing(strip_trailing(page.url, '/index.html'), '.html'), '/modules') + '/'
       end
 
-      root = @modules.find { |page| page.permalink == '/' }
-      order(root)
+      site.config['root'] = @modules.find { |page| page.permalink == '/' }
+      order(site.config['root'])
 
       for i in 0..@ordered_modules.length-1
         @ordered_modules[i].data['previous_module'] = @ordered_modules[i-1] if i > 0
