@@ -1,10 +1,9 @@
 git stash
 jekyll build
+mv _site /tmp
 git checkout gh-pages
 rm -rf *
-git checkout master _site
-mv _site/* .
-rm -rf _site
+mv /tmp/_site/* .
 git add -A
 git commit -am 'rebuilt site'
 git push
