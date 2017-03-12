@@ -1,5 +1,6 @@
 ---
 title: "Number Systems"
+order: 1
 ---
 
 Computers, at a basic level, don't communicate using letters and words like we do. Instead, they communicate and represent data using **number systems**, which is what we'll be talking about in this module.

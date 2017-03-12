@@ -54,6 +54,7 @@ The first, and easiest, attack that can break the Caesar cipher is a **brute-for
     </table>
   </div>
 </div>
+<br/>
 
 <script type="text/javascript">
     function update_brute_force() {
