@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Number Systems | ångstromCTF Learning Guide</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/styles/theme.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Number Systems</h1>
+				<h2>&aring;ngstromCTF Learning Guide</h2>
+      </div>
+		</div>
+
+		<div class="container">
+			<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$$','$$']]}});
+</script>
+
+<div class="row">
+  <div class="col-3">
+    <h3>Navigation</h3>
+
+    <ol class="nav-list">
+      <li>
+  <a class="active" href="/">Home</a>
+
+  
+    <ol>
+    
+      <li>
+  <a class="active" href="/basics/">Basics</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/encodings/">Encodings</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a class="active" href="/basics/number_systems/">Number Systems</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/">Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/">Classical Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/caesar/">Caesar Cipher</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/">Modern Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/modern/aes/">AES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/des/">DES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/rsa/">RSA</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/re/">Reverse Engineering</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    </ol>
+  </div>
+
+  <div class="col-9">
+    <p>Computers, at a basic level, don’t communicate using letters and words like we do. Instead, they communicate and represent data using <strong>number systems</strong>, which is what we’ll be talking about in this module.</p>
+
+<h3 id="binary">Binary</h3>
+
+<p>How are numbers represented in computers? They use a special number system called <strong>binary</strong>. Binary is the <em>base-2 number system</em>. What does this mean? First, let’s review what a base-10 number system is.</p>
+
+<p>Usually, when we count and talk about numbers, we’re using base 10. Let’s pick the base-10 number <script type="math/tex">1572</script>. Remember place values from elementary school math? In the case of <script type="math/tex">1572</script>, <script type="math/tex">1</script> is in the <script type="math/tex">1000</script>’s place, <script type="math/tex">5</script> is in the <script type="math/tex">100</script>’s place, <script type="math/tex">7</script> is in the <script type="math/tex">10</script>’s place, and <script type="math/tex">2</script> is in the <script type="math/tex">1</script>’s place, and we can write that <script type="math/tex">1572 = 1 \cdot 10^3 + 5 \cdot 10^2 + 7 \cdot 10^1 + 2 \cdot 10^0</script>.</p>
+
+<p>When you think about binary, think about the same process, except with powers of two instead of powers of ten. Base 10 uses the digits 0 through 9, while base 2 just uses the digits 0 and 1. We usually denote binary numbers, if it’s not obvious from the context that they are binary, with a subscript 2 (e.g. <script type="math/tex">11010_2</script>). Taking <script type="math/tex">11010_2</script> as an example, we can figure out its value by using powers of two for place values: <script type="math/tex">11010_2 = 1 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0 = 26_{10}</script> (the 10 subscript shows that it’s decimal).</p>
+
+<p>Why is binary so useful? Computers are electrical circuits, and each little circuit has two states: <em>on</em> and <em>off</em>. 0 represents off and 1 represents on. Thus, computers can transmit data by simply turning on and off electricity. Each digit in binary is called a <strong>bit</strong>. A collection of eight bits is called a <strong>byte</strong>. Ever looked a file and seen that its size is measured in GB, KB, MB, or something like that? These all indicate how many bytes long a file’s data is: GB, or gigabytes, means billions of bytes, MB, or megabytes, means millions of bytes, and KB, or kilobytes, means thousands of bytes.</p>
+
+<h3 id="octal-and-hex">Octal and Hex</h3>
+
+<p>As programmers, we often deal with numbers that are too large to be conveniently expressed in binary. For example, the number 100, which requires only three base 10 digits, is 1100100 (seven digits) in binary. As a result, you’ll often see <strong>hexadecimal</strong> (most people just call it <em>hex</em>), which is base 16: it uses place values that are powers of 16. However, we only have characters for 10 digit value. How will we represent the other six? In hex, after 0 through 9, we use the letters A through F (or the corresponding lowercase letters) for the remaining six values. Thus, <script type="math/tex">A_{16} = 10_{10}, B_{16} = 11_{10}, C_{16} = 12_{10}, D_{16} = 13_{10}, E_{16} = 14_{10}, F_{16} = 15_{10}</script>. Let’s do an example and attempt to convert <script type="math/tex">AF8</script> in base 16 to base 10: <script type="math/tex">AF8_{16} = 10 \cdot 16^2 + 15 \cdot 16^1 + 8 \cdot 16^0 = 2802_{10}</script>.</p>
+
+<p>Less often, you’ll see octal, which is base 8. This works exactly how you’d expect it to, using places values that are powers of eight.</p>
+
+<p>Conveniently, since <script type="math/tex">16=2^4</script>, each hex digit corresponds directly to four binary digits. That is to say, for example, <script type="math/tex">3C_{16} = 00111100_2</script>, since <script type="math/tex">3_{16} = 0011_2</script> and <script type="math/tex">C_{16} = 1100_2</script>. Similarly, each octal digit corresponds to three binary digits. Most programming languages have, along with a method that converts an integer into a decimal string, methods for octal, hex, and binary, as well. For example, in Python, <code class="highlighter-rouge">hex(2802)</code> is <code class="highlighter-rouge">'0xaf8'</code> (<code class="highlighter-rouge">0x</code> is a prefix you’ll see that denotes a hex number, along with <code class="highlighter-rouge">0b</code> for binary and <code class="highlighter-rouge">0o</code> for octal). You can also convert the other way. In Python, <code class="highlighter-rouge">int('af8', 16)</code> is <code class="highlighter-rouge">2802</code>.</p>
+
+<h3 id="other-bases">Other Bases</h3>
+
+<p>Sometimes, you’ll see other bases in use, like base 3 or base 11. These operate on the same principle that we discussed above: base-<em>n</em> numbers use digits with place values that are powers of <em>n</em>.</p>
+
+<p>Try it out!</p>
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Base Conversion</div>
+    <div class="panel-body">
+        <form onsubmit="return false;">
+            <label for="from">Original number</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="from" placeholder="1FA7" oninput="update_conversion();">
+                <span class="input-group-addon" id="from-base">base 16</span>
+            </div>
+
+            <label>Original base</label>
+            <div class="input-group">
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="2" onclick="update_conversion();">Binary
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="8" onclick="update_conversion();">Octal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="10" onclick="update_conversion();">Decimal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="from-base-options" value="16" onclick="update_conversion();" checked>Hexadecimal
+                </label>
+            </div>
+
+            <label for="to">Converted number</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="to" placeholder="8103" disabled>
+                <span class="input-group-addon" id="to-base">base 10</span>
+            </div>
+
+            <label>Converted base</label>
+            <div class="input-group">
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="2" onclick="update_conversion();">Binary
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="8" onclick="update_conversion();">Octal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="10" onclick="update_conversion();" checked>Decimal
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="to-base-options" value="16" onclick="update_conversion();">Hexadecimal
+                </label>
+            </div>
+
+            <br/>
+            <button class="btn btn-success" type="submit">Swap bases <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button>
+
+            <br/><br/>
+            <div class="input-group">
+                <label for="conversion">Conversion math</label>
+                <p id="conversion" class="form-control-static">1FA7<sub>16</sub> = 1*16<sup>3</sup> + 15*16<sup>2</sup> + 10*16<sup>1</sup> + 7*16<sup>0</sup> = 8103<sub>10</sub></p>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<script type="text/javascript">
+    var digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    function update_conversion() {
+        var value = $$("#from").val();
+        var base1 = parseInt($$('input[name="from-base-options"]:checked').val());
+        var base2 = parseInt($$('input[name="to-base-options"]:checked').val());
+
+        $$("#from-base").text("base " + base1);
+        $$("#to-base").text("base "+ base2);
+
+        var digits_okay = true;
+        for (var i = 0; i < value.length; i++) {
+            if (!digits.substr(0,base1).includes(value.charAt(i))) digits_okay = false;
+        }
+
+        if (!digits_okay) {
+            $$("#conversion").html("In base " + base1 + ", only the following digits are permissible: " + digits.substr(0,base1)) + ".";
+            return;
+        }
+
+        $$("#conversion").html(value + "<sub>" + base1 + "</sub> = ");
+
+        var ival = 0;
+        for (var i = 0; i < value.length; i++) {
+            ival = ival * base1 + digits.indexOf(value.charAt(i));
+        }
+
+        var conv = "";
+    }
+</script>
+
+
+
+    <br/>
+     <a href="/basics/encodings/" style="float: left;">&laquo; Encodings</a> 
+     <a href="/crypto/" style="float: right;">Cryptography &raquo;</a> 
+    <br/>
+  </div>
+</div>
+
+
+			<footer>
+				<br/>
+				<hr>
+				Copyright &copy; 2016-17 &aring;ngstromCTF.
+				<br/><br/>
+			</footer>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	</body>
+</html>
