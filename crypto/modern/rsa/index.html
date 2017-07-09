@@ -26,7 +26,45 @@
 
 <div class="row">
   <div class="col">
-    <p>RSA is cool.</p>
+    <p>Up to this point, we’ve only been considering <em>symmetric</em> cryptosystems, which use the same key for encryption and decryption. Now, we’ll see our first <strong>asymmetric</strong> cryptosystem, which uses two different keys, a <strong>public key</strong> and <strong>private key</strong>, which come together to form a <strong>keypair</strong>.</p>
+
+<p>To see why asymmetric cryptography, also known as <strong>public-key cryptography</strong>, is so important, let’s consider an important example: the Internet. If Alice is the Google server, and Bob is trying to securely look something up on Google, if we used a symmetric cryptosystem, they’d have to somehow agree on a shared key. However, if Alice and Bob have never met before, how can they agree on a key that only the two of them know? How can each of them trust each other over the Internet?</p>
+
+<p>The solution to this problem is public-key cryptography. Alice, the trusted server, generated a public key and a private key. She sends the public key out to everyone, but keeps the private key for herself. This way, anyone can encrypt a search query with the public key, but only she can read these queries with her private key. Eventually, we’ll learn how she can certify her public key as being legitimate.</p>
+
+<h3 id="rsa">RSA</h3>
+
+<p>Now, we’ll see an example of the most important public-key cryptosystem: <strong>RSA</strong>, or the Rivest-Shamir-Adleman algorithm.</p>
+
+<h4 id="key-generation">Key Generation</h4>
+
+<p>RSA, like many other public-key cryptosystems, operates off of the inherent asymmetry in a computer problem: some type of operation that’s easy to do, but really hard to undo. In RSA’s case, this problem is multiplication: it’s really easy to multiply two numbers together, but really hard to break them back apart by factoring.</p>
+
+<p>In RSA, we usually multiply two prime numbers together to get a <strong>semiprime</strong>. It’s easy to multiply two numbers together, but given just the semiprime, it’s really hard to factor it back into the original primes.</p>
+
+<p>Here’s the basic process of RSA key generation:</p>
+
+<ol>
+  <li>Choose <script type="math/tex">p, q</script> to be two large primes.</li>
+  <li>Compute <script type="math/tex">N = pq</script>, a semiprime known as the <strong>RSA modulus</strong>.</li>
+  <li>Choose an <strong>encryption exponent</strong>, <script type="math/tex">e</script>. Usually <script type="math/tex">e = 65537</script>.</li>
+  <li>Compute the <strong>decryption exponent</strong> <script type="math/tex">d = e^{-1} \pmod{\phi(N)}</script>.</li>
+  <li>The public key is just the numbers <script type="math/tex">N</script> and <script type="math/tex">e</script>, which we denote as <script type="math/tex">\langle N, e \rangle</script>. The private key is <script type="math/tex">\langle p,q,d \rangle</script>.</li>
+</ol>
+
+<p>In other words, the public key contains <script type="math/tex">N</script>, but to figure out the private key numbers <script type="math/tex">p</script> and <script type="math/tex">q</script> from the public key, you have to factor <script type="math/tex">N</script>.</p>
+
+<h4 id="encryption">Encryption</h4>
+
+<p>Once you have you public and private keys, the encrypted form <script type="math/tex">C</script> of a message <script type="math/tex">M</script> is as easy as <script type="math/tex">C \equiv M^e \pmod{N}</script>.</p>
+
+<h4 id="decryption">Decryption</h4>
+
+<p>The encrypted form of a message, <script type="math/tex">C</script>, can be reversed back to <script type="math/tex">M</script> simply as <script type="math/tex">M = C^d \equiv (M^e)^d \pmod{N}</script>.</p>
+
+<p>Why does RSA work? To prove it, we need to assert Euler’s Theorem. We’ll state it but not prove it here:</p>
+
+<p><script type="math/tex">a^{\phi(N)} \equiv 1 \pmod{N}</script> for relatively prime <script type="math/tex">a</script> and <script type="math/tex">N</script>.</p>
 
 
     <br/>
