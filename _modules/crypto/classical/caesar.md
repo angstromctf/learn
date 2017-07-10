@@ -1,5 +1,6 @@
 ---
 title: "Caesar Cipher"
+order: 1
 ---
 
 One of Julius Caesar's foremost assets in the wars he fought was, in fact, a simple substition cipher called the **Caesar cipher**. He used to send secret messages to his troops across enemy lines, foreshadowing the essential nature of cryptography in modern warfare and communication in general. The Caesar cipher operates on a simple principle: it takes a plaintext and a key, which is a number between 1 and 25. It might be easiest to illustrate how it works with an example.
