@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>The One Time Pad - Perfect Secrecy? | ångstromCTF Learning Guide</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/styles/theme.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">The One Time Pad - Perfect Secrecy?</h1>
+				<h2>&aring;ngstromCTF Learning Guide</h2>
+      </div>
+		</div>
+
+		<div class="container">
+			<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$$','$$']]}});
+</script>
+
+<div class="row">
+  <div class="col">
+    <p>When we want to send a secret message, we need to consider how “secret” a encryption algorithm is. An <em>encryption algorithm</em> is a computer algorithm you use to transform some data into a format that other people can’t read without a special key to unlock or “decrypt” the data. You can imagine that</p>
+
+<p><code class="highlighter-rouge">th1s 1s 3ncrypt3d</code></p>
+
+<p>is less secure than</p>
+
+<p><code class="highlighter-rouge">VGhpcyBpcyBlbmNyeXB0ZWQ=</code></p>
+
+<p>Both are different ways of encoding the message <code class="highlighter-rouge">This is encrypted</code>. We call the original message the <em>plaintext</em> and the encrypted messages the <em>ciphertext</em>. The first simply replaces some letters with numbers. It is quite easy to see what the original sentence was. The second is encoded using the AES-CBC encryption algorithm with the key <code class="highlighter-rouge">flagz_for_funz</code> and initialization vector <code class="highlighter-rouge">692ed67cd7bfee05358f33899189eccc</code> (we’ll explain what this means later). It’s essentially impossible, without that information about the key, for an attacker to guess that the ciphertext came from <code class="highlighter-rouge">This is encrypted</code>.</p>
+
+<p>Coming up with a perfect method for encryption is hard. Really hard. One of the only methods that has “perfect secrecy” is the <em>one-time pad (OTP)</em>.</p>
+
+<p>Imagine you have two infinitely long books (how were they printed? Magic.) and both are filled with just random hexadecimal numbers and letters. If you flipped to a page, you might see <code class="highlighter-rouge">0b8a90308dc48c357e8ada81a49</code>, but you would be equally likely to see <code class="highlighter-rouge">21ccdd626bb768a223c8c9c96d27</code>.</p>
+
+<p>Let’s take Alice, Bob, and Eve again. Alice has the message <code class="highlighter-rouge">I'm having a party tomorrow.</code> which she would like to send to Bob. She does not want Eve to learn about this party, because Eve is quite a party pooper. The first thing Alice does is <strong>converts her string into binary</strong>. She then goes to the first page of her book, and picks the first n characters from the book, where n is the length of her message. She then <strong>converts her picked characters into binary</strong>, and then <strong>crosses the characters she used out of her book</strong>. Next, she <a href="http://www.wikiwand.com/en/Exclusive_or">XOR’s</a> the two strings together. She now can safely send this to Bob, knowing that it is impossible for Eve to decrypt the message into “I’m having a party tomorrow.”. However, Bob can easily decrypt this message by taking the n characters from <em>his</em> book, turning them into binary, and XORing them with Alice’s message. We call this cipher the <strong>One Time Pad (OTP)</strong> because each key from our book is only used once. Eve has no way of knowing how the message was made - any string of random digits and characters could have been the key. The message could easily have been <code class="highlighter-rouge">I'm taking a quizz tomorrow.</code>. Since Eve doesn’t know what random key was used, she can’t conclusively determine what the message was. There are problems with this, however. Can you think of any of them?</p>
+
+<p>First off, the problem of exchanging the books. We assumed at the beginning that both Alice and Bob had the same book of random characters. We also assumed the books were of infinite length. In reality, we cannot have infinite length books for obvious reasons. Ignoring that, we need to ask how the books were exchanged. Alice and Bob would have to set up a time to exchange the books by communicating. However, since these messages are not secured, Eve could find them and interrupt the key exchange meeting.</p>
+
+<p>Now in the modern day of computers, we would want to generate a random key for each message we send. But this means exchanging a key of the message length <em>n</em> every time we send data, effectively doubling the amount of data that needs to be sent.</p>
+
+<p><strong>TL;DR</strong>: OTP can give perfect secrecy, but it’s hard to implement in reality. It can also be cracked if used improperly, as we will see in the next chapter.</p>
+
+
+    <br/>
+     <a href="/crypto/classical/caesar/" style="float: left;">&laquo; Caesar Cipher</a> 
+     <a href="/crypto/classical/ttp/" style="float: right;">Breaking the Two Time Pad &raquo;</a> 
+    <br/><br/>
+  </div>
+
+  <div class="col-12 col-md-auto">
+    <h3>Navigation</h3>
+
+    <ol class="nav-list">
+      <li>
+  <a class="active" href="/">Home</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/">Basics</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/number_systems/">Number Systems</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/site/">Competition Structure</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/site/problems/">Problems and Points</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/site/site/">Navigating the Website</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/terminal/">The Terminal</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/terminal/setup/">Getting Set Up With Terminal</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/terminal/first/">Your First Terminal Experience</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/terminal/files/">Files and Directories</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/terminal/useful/">Useful Commands</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/encodings/">Encodings</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a class="active" href="/crypto/">Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a class="active" href="/crypto/classical/">Classical Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/caesar/">Caesar Cipher</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a class="active" href="/crypto/classical/otp/">The One Time Pad - Perfect Secrecy?</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/classical/ttp/">Breaking the Two Time Pad</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/">Modern Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/modern/aes/">AES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/des/">DES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/rsa/">RSA</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/re/">Reverse Engineering</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    </ol>
+  </div>
+</div>
+
+
+			<footer>
+				<br/>
+				<hr>
+				Copyright &copy; 2016-17 &aring;ngstromCTF.
+				<br/><br/>
+			</footer>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	</body>
+</html>

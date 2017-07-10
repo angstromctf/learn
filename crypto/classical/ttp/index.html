@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>Classical Cryptography | ångstromCTF Learning Guide</title>
+		<title>Breaking the Two Time Pad | ångstromCTF Learning Guide</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		<link rel="stylesheet" href="/assets/styles/theme.css">
@@ -13,7 +13,7 @@
 	<body>
 		<div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Classical Cryptography</h1>
+        <h1 class="display-3">Breaking the Two Time Pad</h1>
 				<h2>&aring;ngstromCTF Learning Guide</h2>
       </div>
 		</div>
@@ -26,16 +26,31 @@
 
 <div class="row">
   <div class="col">
-    <p>If you take a look at cryptography throughout history, you’ll see that it’s divided into two major periods, based on time: <strong>classical cryptography</strong> up until the 1970s, and <strong>modern cryptography</strong> after that. The field took a quantum leap with the introduction of new algorithms and cryptosystems such as the Data Encryption Standard (<em>DES</em>), Rivest-Shamir-Adleman public-key algorithm (<em>RSA</em>), and <em>Diffie-Hellman key exchange</em>, rendering old techniques obsolete and almost trivial to defeat with modern computational power. However, it’s still instructive to look at them and learn a lot of the terminology and basic ideas, which are the same as those that underlie modern cryptography.</p>
+    <p>Let’s say that Bob is trying to send a message to Alice <code class="highlighter-rouge">GIVEMEFOOD</code>,
+which as a hex string is <code class="highlighter-rouge">474956454d45464f4f44</code>.
+He encodes it with the key <code class="highlighter-rouge">56515a5a494c514d4c54</code>,
+which gives him the ciphertext <code class="highlighter-rouge">11180c1f040917020310</code>.
+He sends this off to Alice, who sends him a CAD of a pepperoni pizza. Bob proceeds to print this out, and they both are happy.</p>
 
-<p>The major focus of classical cryptography (and modern cryptography) was (and is) <strong>encryption</strong>: Alice transforming a secret message, the <strong>plaintext</strong>, into a scrambled or <em>encrypted</em> form, called the <strong>ciphertext</strong>, using a <strong>secret key</strong>. The ciphertext can then be decoded, or <strong>decrypted</strong>, when it gets to Bob, preventing Eve from obtaining the information, as long as Bob knows the key and Eve doesn’t. This type of cryptosystem is called a <strong>cipher</strong>. Classical ciphers can generally be divided into two major types: <strong>substitution ciphers</strong>, which is a fancy way of saying ciphers that switch letters for other letters, and <strong>transposition ciphers</strong>, which swap around the order of the letters. The goal of these ciphers is to resist <strong>cryptanalysis</strong>: smart people using math to try to reverse the encryption without knowing the key.</p>
+<p>Let’s say Bob wants to send Alice another message <code class="highlighter-rouge">MENEEDRICE</code>, because rice is the ultimate food. Also, piracy of rice CADs has grown exponentially, and as a result the government has banned posting rice CADs online.</p>
 
-<p>Now, this might just seem like a lot of vocab we’re throwing at you that you don’t really understand. In the remainder of this section, we’ll introduce important examples of classical cryptosystems, and you’ll see these terms in action!</p>
+<p>Sadly, Bob is a lazy bum so he encodes it with the same key, giving him the ciphertext <code class="highlighter-rouge">1b14141f0c0803040f11</code>.</p>
+
+<p>If Eve gets these two ciphertexts, she can’t do anything because it’s close enough to using the OTP, right? <strong>Wrong</strong>.</p>
+
+<p>Let’s say she guesses the key is the same and XORs the two ciphertexts together. Because the first ciphertext is <code class="highlighter-rouge">Message 1</code> XOR <code class="highlighter-rouge">key</code> and the second ciphertext is <code class="highlighter-rouge">Message 2</code> XOR <code class="highlighter-rouge">key</code>, when we XOR the ciphertexts together we get <code class="highlighter-rouge">Message 1</code> XOR <code class="highlighter-rouge">Message 2</code> XOR <code class="highlighter-rouge">key</code> XOR <code class="highlighter-rouge">key</code>. Because of XOR properties, <code class="highlighter-rouge">key</code> XOR <code class="highlighter-rouge">key</code> cancels, and it is essentially <code class="highlighter-rouge">Message 1</code> XOR <code class="highlighter-rouge">Message 2</code></p>
+
+<p>But if something XOR itself just cancels, if Eve XORs either message with what Eve just got, then that means she can get the other message too!
+What’s even worse is that if she guesses part of one message, she can see the corresponding part revealed in the other message and make guesses from there!</p>
+
+<p>A good visual example of the process just described can be found at mixedmath’s response <a href="http://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse">here.</a></p>
+
+<p><strong>TL;DR</strong>: Don’t reuse keys. Key reuse, especially with OTP, makes the messages almost trivial to decipher.</p>
 
 
     <br/>
-     <a href="/crypto/" style="float: left;">&laquo; Cryptography</a> 
-     <a href="/crypto/classical/caesar/" style="float: right;">Caesar Cipher &raquo;</a> 
+     <a href="/crypto/classical/otp/" style="float: left;">&laquo; The One Time Pad - Perfect Secrecy?</a> 
+     <a href="/crypto/modern/" style="float: right;">Modern Cryptography &raquo;</a> 
     <br/><br/>
   </div>
 
@@ -205,7 +220,7 @@
 
     
       <li>
-  <a  href="/crypto/classical/ttp/">Breaking the Two Time Pad</a>
+  <a class="active" href="/crypto/classical/ttp/">Breaking the Two Time Pad</a>
 
   
     <ol>

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>Classical Cryptography | ångstromCTF Learning Guide</title>
+		<title>Problems and Points | ångstromCTF Learning Guide</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		<link rel="stylesheet" href="/assets/styles/theme.css">
@@ -13,7 +13,7 @@
 	<body>
 		<div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Classical Cryptography</h1>
+        <h1 class="display-3">Problems and Points</h1>
 				<h2>&aring;ngstromCTF Learning Guide</h2>
       </div>
 		</div>
@@ -26,16 +26,36 @@
 
 <div class="row">
   <div class="col">
-    <p>If you take a look at cryptography throughout history, you’ll see that it’s divided into two major periods, based on time: <strong>classical cryptography</strong> up until the 1970s, and <strong>modern cryptography</strong> after that. The field took a quantum leap with the introduction of new algorithms and cryptosystems such as the Data Encryption Standard (<em>DES</em>), Rivest-Shamir-Adleman public-key algorithm (<em>RSA</em>), and <em>Diffie-Hellman key exchange</em>, rendering old techniques obsolete and almost trivial to defeat with modern computational power. However, it’s still instructive to look at them and learn a lot of the terminology and basic ideas, which are the same as those that underlie modern cryptography.</p>
+    <p>The main part of this competition is answering the problems that we give to you. You can find all the problems under the Problems tab. All problems have four parts:</p>
+<ul>
+  <li>The problem name</li>
+  <li>The point value</li>
+  <li>The question, which will include problem files</li>
+  <li>A hint</li>
+</ul>
 
-<p>The major focus of classical cryptography (and modern cryptography) was (and is) <strong>encryption</strong>: Alice transforming a secret message, the <strong>plaintext</strong>, into a scrambled or <em>encrypted</em> form, called the <strong>ciphertext</strong>, using a <strong>secret key</strong>. The ciphertext can then be decoded, or <strong>decrypted</strong>, when it gets to Bob, preventing Eve from obtaining the information, as long as Bob knows the key and Eve doesn’t. This type of cryptosystem is called a <strong>cipher</strong>. Classical ciphers can generally be divided into two major types: <strong>substitution ciphers</strong>, which is a fancy way of saying ciphers that switch letters for other letters, and <strong>transposition ciphers</strong>, which swap around the order of the letters. The goal of these ciphers is to resist <strong>cryptanalysis</strong>: smart people using math to try to reverse the encryption without knowing the key.</p>
+<p>Problems are listed in increasing order of difficulty. Higher point values correspond to harder problems. The problems towards the beginning can be solved with some simple resources and less than 15 minutes of effort. Problems towards the end may require many hours of hard work to solve. angstromCTF assumes no responsibility for any objects destroyed during this competition, including but not limited to your sanity.</p>
 
-<p>Now, this might just seem like a lot of vocab we’re throwing at you that you don’t really understand. In the remainder of this section, we’ll introduce important examples of classical cryptosystems, and you’ll see these terms in action!</p>
+<p>To solve the problem, you will have to do various tasks to get the flag. The flag will be formatted as <code class="highlighter-rouge">angstromCTF{flag}</code> unless otherwise stated. Once you get the flag, paste or type it into the flag box for the problem and hit submit. If you got the right flag, congrats! A green box will appear and tell you that you solved the problem. If you didn’t get it right, you will see a red box with “Incorrect” written in it. All of the flags are <strong>salted</strong>. No, they are not very angry, rather they have three or four random hex values. Thus, if the text flag was <code class="highlighter-rouge">hi_im_a_flag</code>, the actual flag would be <code class="highlighter-rouge">angstromCTF{0x230x430x92hi_im_a_flag}</code>. This ensures it is nearly impossible to guess flags, because that just isn’t any fun. Flag text relates to the problem somehow, but other than that is totally arbitrary.</p>
+
+<p>Now, here’s a sample problem:</p>
+
+<p><strong>Caesar Salad: 20 Points</strong></p>
+
+<p>Hmmm…. I wonder what this means. Can you help me understand it?
+<code class="highlighter-rouge">hunzayvtJAM{234432op_dlsjvtl_av_hunzayvt}</code></p>
+
+<p>(Submit box) (Hint box)</p>
+
+<p>We see this problem has all four parts - a name, a point value, a question, and a hint. Clicking on the hint button reveals the hint. We believe that hints are a useful aid to solving problems if you are stuck, so you will never receive penalties for using hints. However, be warned - for more difficult problems, the hints may be cryptic or simply <code class="highlighter-rouge">"No hint :&gt;"</code>.</p>
+
+<p><strong>TL;DR</strong>: Our website has problems. They tell you to get a flag, of the form <code class="highlighter-rouge">angstromctf{(random bytes)(some flag text)}</code>. Sometimes there are hints, sometimes not.</p>
+
 
 
     <br/>
-     <a href="/crypto/" style="float: left;">&laquo; Cryptography</a> 
-     <a href="/crypto/classical/caesar/" style="float: right;">Caesar Cipher &raquo;</a> 
+     <a href="/basics/site/" style="float: left;">&laquo; Competition Structure</a> 
+     <a href="/basics/site/site/" style="float: right;">Navigating the Website &raquo;</a> 
     <br/><br/>
   </div>
 
@@ -50,7 +70,7 @@
     <ol>
     
       <li>
-  <a  href="/basics/">Basics</a>
+  <a class="active" href="/basics/">Basics</a>
 
   
     <ol>
@@ -67,13 +87,13 @@
 
     
       <li>
-  <a  href="/basics/site/">Competition Structure</a>
+  <a class="active" href="/basics/site/">Competition Structure</a>
 
   
     <ol>
     
       <li>
-  <a  href="/basics/site/problems/">Problems and Points</a>
+  <a class="active" href="/basics/site/problems/">Problems and Points</a>
 
   
     <ol>
@@ -171,13 +191,13 @@
 
     
       <li>
-  <a class="active" href="/crypto/">Cryptography</a>
+  <a  href="/crypto/">Cryptography</a>
 
   
     <ol>
     
       <li>
-  <a class="active" href="/crypto/classical/">Classical Cryptography</a>
+  <a  href="/crypto/classical/">Classical Cryptography</a>
 
   
     <ol>

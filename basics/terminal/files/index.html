@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Files and Directories | ångstromCTF Learning Guide</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/styles/theme.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Files and Directories</h1>
+				<h2>&aring;ngstromCTF Learning Guide</h2>
+      </div>
+		</div>
+
+		<div class="container">
+			<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$$','$$']]}});
+</script>
+
+<div class="row">
+  <div class="col">
+    <p>In graphical operating systems, you usually have a graphical file manager, like Finder or File Explorer.</p>
+<p style="text-align: center;">
+<img src="nautilus.png" />
+<br />
+A graphical file manager.
+</p>
+
+<p>We can also represent the file structure in terms of a tree -</p>
+<p style="text-align: center;">
+<img src="file_manager.jpg" />
+<br />
+A tree like representation of files.
+</p>
+
+<p>We see that the <code class="highlighter-rouge">/</code> directory is the highest up in this tree. All the other files are within the <code class="highlighter-rouge">/</code> directory.</p>
+
+<p>Let’s say you want to access your file under <code class="highlighter-rouge">.gnome</code>, and you’re currently in <code class="highlighter-rouge">me</code>. The command <strong><code class="highlighter-rouge">ls</code></strong> lists all the files and folders in the current directory. If we did <code class="highlighter-rouge">ls</code>, we would see</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>.enlightenment
+.gnome
+.gnome-desktop
+etc...
+</code></pre>
+</div>
+<p>Now if we want to get to a directory, we can do <strong><code class="highlighter-rouge">cd</code></strong>, which stands for “change directory”. To get to <code class="highlighter-rouge">.gnome</code> we type <code class="highlighter-rouge">cd .gnome</code> and hit <code class="highlighter-rouge">↵ Enter</code>. Now, we are in the <code class="highlighter-rouge">.gnome</code> directory, and we can <code class="highlighter-rouge">ls</code> to see our files here. If you get lost in the directory tree, <strong><code class="highlighter-rouge">pwd</code></strong> will come to the rescue! It stands for “Path to working directory” and prints out the path to where you currently are. So if we are in <code class="highlighter-rouge">.gnome</code>, we see from the picture above its under <code class="highlighter-rouge">me</code>, which is under <code class="highlighter-rouge">home</code>, which is under <code class="highlighter-rouge">/</code>. Thus, <code class="highlighter-rouge">pwd</code> would print out <code class="highlighter-rouge">/home/me/.gnome</code>. To go up in the directory tree, for example from <code class="highlighter-rouge">.gnome</code> to <code class="highlighter-rouge">me</code>, you would do <code class="highlighter-rouge">cd ..</code>. One period represents the current directory, while two represents the <em>parent</em> directory, or the directory directly above.</p>
+
+<p><code class="highlighter-rouge">cd</code> by default uses <strong>relative paths</strong>. This means that for any cd command <code class="highlighter-rouge">cd blah</code>, it searches the current folder for <code class="highlighter-rouge">blah</code>, but if <code class="highlighter-rouge">blah</code> is not found it errors and stops. For example, say we need a file from the folder <code class="highlighter-rouge">karen</code>, but we’re in <code class="highlighter-rouge">.gnome</code>. If we type <code class="highlighter-rouge">cd karen</code>, the terminal will say: <code class="highlighter-rouge">karen: file or directory not found</code>. To get to <code class="highlighter-rouge">karen</code> we would need to type the <strong>absolute path</strong> to the file. The absolute path simply displays the full path from the root directory, <code class="highlighter-rouge">/</code>, to the file. For the folder <code class="highlighter-rouge">karen</code>, this would be <code class="highlighter-rouge">/home/ftp/karen</code>. Essentially, the absolute path is like a map - no matter from where you are in the folder tree, you can get to where you want. The relative path is like GPS directions: they could take you to a different place depending on where you start.</p>
+
+
+    <br/>
+     <a href="/basics/terminal/first/" style="float: left;">&laquo; Your First Terminal Experience</a> 
+     <a href="/basics/terminal/useful/" style="float: right;">Useful Commands &raquo;</a> 
+    <br/><br/>
+  </div>
+
+  <div class="col-12 col-md-auto">
+    <h3>Navigation</h3>
+
+    <ol class="nav-list">
+      <li>
+  <a class="active" href="/">Home</a>
+
+  
+    <ol>
+    
+      <li>
+  <a class="active" href="/basics/">Basics</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/number_systems/">Number Systems</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/site/">Competition Structure</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/site/problems/">Problems and Points</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/site/site/">Navigating the Website</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a class="active" href="/basics/terminal/">The Terminal</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/basics/terminal/setup/">Getting Set Up With Terminal</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/terminal/first/">Your First Terminal Experience</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a class="active" href="/basics/terminal/files/">Files and Directories</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/terminal/useful/">Useful Commands</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/basics/encodings/">Encodings</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/">Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/">Classical Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/classical/caesar/">Caesar Cipher</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/classical/otp/">The One Time Pad - Perfect Secrecy?</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/classical/ttp/">Breaking the Two Time Pad</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/">Modern Cryptography</a>
+
+  
+    <ol>
+    
+      <li>
+  <a  href="/crypto/modern/aes/">AES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/des/">DES</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/crypto/modern/rsa/">RSA</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    
+      <li>
+  <a  href="/re/">Reverse Engineering</a>
+
+  
+    <ol>
+    
+    </ol>
+  
+</li>
+
+    
+    </ol>
+  
+</li>
+
+    </ol>
+  </div>
+</div>
+
+
+			<footer>
+				<br/>
+				<hr>
+				Copyright &copy; 2016-17 &aring;ngstromCTF.
+				<br/><br/>
+			</footer>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	</body>
+</html>
