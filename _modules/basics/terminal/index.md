@@ -2,8 +2,7 @@
 title: The Terminal
 order: 1
 ---
-<
-p style='text-align: center;'>
+<p style='text-align: center;'>
 <img src='http://imgs.xkcd.com/comics/sandwich.png'/>
 <br/>
 When you're a child, you use a computer by the pictures. When you grow up, you learn to read and write.

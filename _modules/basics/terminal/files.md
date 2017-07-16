@@ -4,14 +4,14 @@ order: 3
 ---
 In graphical operating systems, you usually have a graphical file manager, like Finder or File Explorer.
 <p style='text-align: center;'>
-<img src='nautilus.png'/>
+<img src='https://i.imgur.com/0edqSDKl.png' style="width: 80%"/>
 <br/>
 A graphical file manager.
 </p>
 
 We can also represent the file structure in terms of a tree -
 <p style='text-align: center;'>
-<img src='file_manager.jpg'/>
+<img src='https://imgur.com/nu5Xndnl.png' style="width: 40%"/>
 <br/>
 A tree like representation of files.
 </p>
